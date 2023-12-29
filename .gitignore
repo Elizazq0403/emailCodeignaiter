@@ -126,3 +126,11 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+# Ignorar los archivos de CodeIgniter
+/application/cache
+/application/config/development
+/application/logs
+/system
+/user_guide
+/index.php
+/license.txt

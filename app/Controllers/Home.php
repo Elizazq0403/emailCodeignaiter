@@ -14,20 +14,19 @@ class Home extends BaseController
         return view('form_email');
     }
     public function enviar_email()
-    {
-        $asunto = $this->request->getPost('asunto');
-        $mensaje = $this->request->getPost('mensaje');
+    {   
+        /*$remitente = $this->request->getPost('remitente');*/
         $correo = $this->request->getPost('correo');
         $copia = $this->request->getPost('cccopia');
-
-
+        $asunto = $this->request->getPost('asunto');
+        $mensaje = $this->request->getPost('mensaje');
+        
         $email = \Config\Services::email();
 
-        $email->setFrom('ventas@asherindustriales.com', 'Elizabeth Zapata');
+        $email->setFrom("ventas@asherindustriales.com", 'Elizabeth Zapata');
         $email->setTo($correo);
         $email->setCC($copia);
         /*$email->setBCC('them@their-example.com');*/
-
         $email->setSubject($asunto);
         $email->setMessage($mensaje);
 
@@ -44,5 +43,7 @@ class Home extends BaseController
 
     
     }
+
+
 
 }

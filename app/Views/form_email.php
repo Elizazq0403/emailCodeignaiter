@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
     <head>
-        <script src="/docs/5.3/assets/js/color-modes.js"></script>
+        <!--<script src="/docs/5.3/assets/js/color-modes.js"></script>-->
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,13 +14,12 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 
-        <link href="<?php echo base_url() ?>/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link rel="stylesheet" href="<?php echo base_url() ?>/public/css/bootstrap.min.css">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" href="<?php echo base_url() ?>/public/img/favicons/apple-touch-icon.png" sizes="180x180" />
         <link rel="icon" href="<?php echo base_url() ?>/public/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
         <link rel="icon" href="<?php echo base_url() ?>/public/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-        <link rel="manifest" href="<?php echo base_url() ?>/public/img/favicons/manifest.json" />
         <link rel="mask-icon" href="<?php echo base_url() ?>/public/img/favicons/safari-pinned-tab.svg" color="#712cf9" />
         <link rel="icon" href="<?php echo base_url() ?>/public/img/favicons/favicon.ico" />
         <meta name="theme-color" content="#712cf9" />
@@ -109,30 +108,36 @@
     </head>
     <body class="d-flex align-items-center py-4 bg-body-tertiary">
         <main class="form-signin w-100 m-auto">
-            <form id="form_enviar_email" method="post" action="<?php echo base_url() ?>/enviar-email">
+            <form id="form_enviar_email" method="post" action="<?php echo base_url() ?>/enviar-email" enctype="multipart/form-data">
                 <img class="mb-4" src="<?php echo base_url() ?>/public/img/bootstrap-logo.svg" alt="" width="72" height="57" />
                 <h1 class="h3 mb-3 fw-normal">Enviar mensaje a Correo</h1>
+                <!-- <div class="form-floating">
+                    <input type="email" class="form-control" id="remitente" name="remitente" placeholder="Ingresa correo remitente" required />
+                    <label for="floatingInput"></label>
+                </div>-->
                 <div class="form-floating">
                     <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa correo destinatario" required />
-                    <label for="floatingInput"></label>
+                    <label for="floatingInput">Ingresa correo destinatario:</label>
                 </div>
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="cccorreo" name="cc_correo" placeholder="CC:" required />
-                    <label for="floatingInput"></label>
+                    <input type="email" class="form-control" id="cccorreo" name="cccorreo" placeholder="CC:" />
+                    <label for="floatingInput">C.C:</label>
                 </div>
                 <div class="form-floating">
                     <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto" requerired />
-                    <label for="floatingInput"></label>
+                    <label for="floatingInput">Asunto:</label>
                 </div>
                 <div class="form-floating">
-                    <textarea rows="4" class="form-control" name="enviar_mensaje" placeholder="Mensaje:" id="mensaje"></textarea>
-                    <label for="floatingPassword"></label>
+                    <textarea rows="4" class="form-control" name="mensaje" placeholder="Mensaje:" id="mensaje"></textarea>
+                    <label for="floatingPassword">Mensaje:</label>
                 </div>
+                <label for="#elegir">Elige el archivo a subir: </label>
+                <input id="elegir" name="uploadedfile" type="file" /><br />
+                <input type="submit" class="ui blue inline button" value="Subir archivo" />
                 <button class="btn btn-primary w-100 py-2" type="submit">Enviar</button>
-                <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
             </form>
         </main>
-        <script src="<?php echo base_url() ?>/public/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="<?php echo base_url() ?>/public/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
 
